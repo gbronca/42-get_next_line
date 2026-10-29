@@ -6,7 +6,7 @@
 /*   By: gcouto-b <gcouto-b@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:17:31 by gcouto-b          #+#    #+#             */
-/*   Updated: 2026/10/29 17:00:59 by gcouto-b         ###   ########.fr       */
+/*   Updated: 2026/10/29 21:21:01 by gcouto-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 10
+#	define BUFFER_SIZE BUFSIZ
 # endif
 
 # include <fcntl.h>
