@@ -16,6 +16,21 @@
   - **Ubuntu / Linux (glibc)**: Typically 8192 bytes
   - **Windows (MinGW / Visual C++)**: Typically 512 bytes (though underlying runtime streams may allocate larger chunks like 4096 bytes).
 
+### Pseudo Code
+
+- Check `fd` and `BUFFER_SIZE`
+- `fd < 0 || BUZZER_SIZE <= 0`
+  - Yes --> Return NULL
+- Initialisation:
+  - final_string = NULL
+  - buffer = NULL
+  - read_bytes = 1
+- read_bytes == 0?
+  - 
+- tmp contains `'\0'`?
+  - Yes --> free memory and return line
+  - No --> 
+
 ## Resources
 
 [get_next_line explained : develop a function that reads a file line by line](https://www.youtube.com/watch?v=8E9siq7apUU)

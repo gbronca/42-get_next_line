@@ -6,34 +6,26 @@
 /*   By: gcouto-b <gcouto-b@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:20:41 by gcouto-b          #+#    #+#             */
-/*   Updated: 2026/10/29 16:57:51 by gcouto-b         ###   ########.fr       */
+/*   Updated: 2026/10/30 18:08:13 by gcouto-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// char	*get_next_line(int fd)
-// {
+#include "get_next_line.h"
 
-// }
-
-// Remove before submitting
-
-#include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
-#include <stdio.h>
-
-int main(void)
+char	*get_next_line(int fd)
 {
-	int		fd;
-	char	buffer[1024];
+	char	buffer[BUFFER_SIZE];
 	int		chars_read;
+	char	*line;
 
-	fd = open("README.md", O_RDONLY);
-	while ((chars_read = read(fd, buffer, 25)))
+	while ((chars_read = read(fd, buffer, 100)))
 	{
 		buffer[chars_read] = '\0';
-		printf("from md -> %s\n", buffer);
+		line = malloc(sizeof(char) * chars_read);
+		if (!line)
+			return (NULL);
+		return (line);
 	}
-	
-	return (0);
+	return ("'a'");
+
 }
