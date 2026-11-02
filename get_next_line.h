@@ -6,25 +6,43 @@
 /*   By: gcouto-b <gcouto-b@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 17:17:31 by gcouto-b          #+#    #+#             */
-/*   Updated: 2026/10/30 20:03:09 by gcouto-b         ###   ########.fr       */
+/*   Updated: 2026/11/02 15:26:10 by gcouto-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <fcntl.h>
+// read()
 # include <unistd.h>
+// free() & malloc()
 # include <stdlib.h>
+// BUFSIZ
 # include <stdio.h>
 
+// Read buffer: buffer[start .. len]
+typedef struct s_state
+{
+	char		*buffer;
+	size_t		start;
+	size_t		len;
+}	t_state;
+
+// The line being built
+typedef struct s_line
+{
+	char		*str;
+	size_t		len;
+	size_t		capacity;
+}	t_line;
+
 # ifndef BUFFER_SIZE
-#	define BUFFER_SIZE BUFSIZ
+#  define BUFFER_SIZE BUFSIZ
 # endif
 
 char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-char	*ft_strjoin(char const *s1, char const *s2);
+int		gnl_read_fd(int fd, t_state *state);
+int		gnl_append(t_line *line, const char *src, size_t n);
+void	gnl_free(t_state *state);
 
 #endif
