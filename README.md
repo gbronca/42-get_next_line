@@ -2,15 +2,6 @@
 
 # get_next_line
 
-| FD | Description |
-| - | - |
-| 0 | stdin |
-| 1 | stdout |
-| 2 | stderr |
-| - | - |
-
-## Description
-
 This is an implementation of `get_next_line`, which reads from a file descriptor and returns a new line each time it is called, until it reaches the end of the file.
 The function returns a pointer to a string containing the line that was read, without the newline character `\n`. It returns `NULL` when the end of file is reached or an error occurs. The function uses `static variable` to store the state of the call.
 
